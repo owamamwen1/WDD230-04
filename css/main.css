@@ -157,7 +157,6 @@ section {
     height: 92vh;
     top: 8vh;
     background-color: #5ca4a9;
-    display: flex;
     flex-direction: column;
     align-items: center;
     width: 40%;
