@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+main {
+  margin: 0 auto;
+  padding: 0.75rem;
+  max-width: 69rem;
+}
+
+nav,
+footer {
+  background-color: #5ca4a9;
+  color: #fff;
+  margin: 0 auto;
+}
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: #5ca4a9;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  transition: 0.5s;
+}
+nav ul li a {
+  color: #fff;
+  text-align: center;
+  padding: 0.75rem;
+  text-decoration: none;
+  font-size: 0.95rem;
+  background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(222, 233, 222),
+      transparent
+    )
+    top / var(--d, 0) 10px no-repeat;
+  transition: 0.5s;
+}
+nav a:hover {
+  color: #e6ebee;
+  --d: 75%;
+  background-color: rgb(103, 129, 106);
+}
+.log {
+  color: rgb(226, 226, 226);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 22px;
+}
+
+.nav-links {
+  display: flex;
+  /* justify-content: space-around; */
+  /* width: 40%; */
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgb(226, 226, 226);
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/*The three lines of a mobile click */
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+/*the three link close, become X slowly*/
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: rgb(226, 226, 226);
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Daily Forcase */
+.dailyforcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  text-align: center;
+  background-color: #eee;
+}
+.imagdailyforcase {
+  width: 40px;
+  height: 40px;
+}
+
+/* the two flexbox */
+.flexbox {
+  grid-template-columns: 1fr 1fr;
+  display: grid;
+  font-size: 0.8rem;
+}
+
+section {
+  margin: 0.5rem;
+  border: 1px solid #bbb;
+  padding: 0 1rem;
+  text-align: center;
+  background-color: #eee;
+}
+
+/*change the web to mobile version*/
+
+@media screen and (max-width: 1024px) {
+  .nav-links {
+    width: 70%;
+    display: flex;
+  }
+  section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /*hide the mobile nav*/
+  section {
+    grid-template-columns: 1fr 1fr;
+  }
+  section:nth-child(3) {
+    grid-column: span 1;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  .nav-links {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top: 8vh;
+    background-color: #5ca4a9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+  }
+  /*fading out and in of mobile*/
+  .nav-links li {
+    opacity: 0;
+  }
+  /*show the mobile nav*/
+  .burger {
+    display: block;
+  }
+}
+
+/*javascript nav-bar active when you click*/
+
+.nav-active {
+  transform: translateX(0%);
+}
+
+/*The action inside the text mobile */
+
+@keyframes navlinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+    /*50%*/
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+/*The three links to become X when it open*/
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
